@@ -8,4 +8,4 @@ def adder(x, y):
     49
     """
 
-    return x + y + 1
+    return x + y * 2

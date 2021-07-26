@@ -2,7 +2,7 @@
 
 from unittest import TestCase
 from app import app
-from flask import session
+# from flask import session
 
 # Make Flask errors be real errors, not HTML pages with error info
 app.config['TESTING'] = True
@@ -16,7 +16,7 @@ class ColorViewsTestCase(TestCase):
 
     def test_color_form(self):
         with app.test_client() as client:
-            # can now make requests to flask via `client`
+
             resp = client.get('/')
             html = resp.get_data(as_text=True)
 
@@ -25,8 +25,7 @@ class ColorViewsTestCase(TestCase):
 
     def test_color_submit(self):
         with app.test_client() as client:
-            resp = client.post('/fav-color',
-                               data={'color': 'blue'})
+            resp = client.post('/fav-color', data={'color': 'blue'})
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
