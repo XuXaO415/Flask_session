@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boggle Exercise</title>
+</head>
+
+<body>
+    <!--So just to clarify on which element is best to use, a div class or a div id or even section id/class--id is used only once and is unique, class can be used multiple times and a section elements are appropiate are listed in the documents outline -->
+    <div class="boggle">
+        <table class="board">
+            <tbody>
+                {% for row in board %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>
