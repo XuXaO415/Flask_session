@@ -11,7 +11,7 @@
 <body>
     <!--So just to clarify on which element is best to use, a div class or a div id or even section id/class--id is used only once and is unique, class can be used multiple times and a section elements are appropiate are listed in the documents outline -->
     <!--This Jinja template will display the board-->
-    <div class="boggle">
+    <div id="boggle">
         <table class="board">
             <tbody>
                 {% for row in board %}
@@ -23,9 +23,23 @@
                 {% endfor %}
             </tbody>
         </table>
+        <p>
+            High Score:
+            <b>{{ score }}</b>
+        </p>
+        <form method="POST" class="add-word">
+            <input name="word" class="word" placeholder="Guess a word!">
+            <button>Enter</button>
+        </form>
     </div>
     <script src="http://unpkg.com/jquery"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <!-- From AJAX Handout-->
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="/static/boggle.js"></script>
+    <script>
+        let game = new BoggleGame("boggle", 60);
+    </script>
 </body>
 
 </html>
